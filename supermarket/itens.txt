@@ -1,0 +1,6 @@
+santa clara, 3.59, food
+nescafe, 3.69, food
+sabonete1, 2.69, higiene1
+sabonete2, 3.69, higiene1
+desinfetante, 7.99, higeien2
+água sanitária, 9.55, hiegiene2
