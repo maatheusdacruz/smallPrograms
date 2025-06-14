@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template}">
+<body>
+
+<section layout:fragment="barra">
+    <h1>PETDOG LOGIN</h1>
+</section>
+
+<section layout:fragment="corpo">
+
+    <span th:if="${param.error}" >Login ou senha incorreta</span>
+
+    <form method="POST" th:action="@{/login}">
+        <div class="row">
+            <label for="username">Login</label>
+            <input name="username" id="username" type="text"></div>
+        <div class="row">
+            <label for="password">Senha</label>
+            <input name="password" id="password" type="password"></div>
+        <div>
+            <button>LOGAR</button>
+        </div>
+    </form>
+
+</section>
+
+</body>
+</html>
