@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{./template}">
+<body>
+
+<section layout:fragment="barra" sec:authorize="hasAuthority('CAN_FILTER')">
+    <fieldset>
+        <legend>pesquisa</legend>
+        <form action="/cliente" method="get">
+            nome: <input type="text" name="cpPesq" />
+            <br />
+            <button>Pesquisar</button>
+            <a href="/cliente/novo">
+                <button type="button">Novo Cliente</button>
+            </a>
+        </form>
+
+    </fieldset>
+</section>
+
+<section layout:fragment="corpo">
+    <h2 >Lista de Clientes</h2>
+
+    <table>
+        <tr>
+            <td>Nome</td>
+            <td>email</td>
+            <td>nº animais</td>
+            <td>ações</td>
+        </tr>
+        <tr th:if="${lista.empty}">
+            <td colspan="4">Não há Cliente cadastrado</td>
+        </tr>
+        <tr th:each="c: ${lista}"  >
+            <td th:text="${c.nome}" >Zezin da Silva</td>
+            <td th:text="${c.email}">Ze@ze</td>
+            <td th:text="${c.numeroAnimais}">15</td>
+            <td>
+                X
+                <a th:href="${'/cliente/edit/'+c.id}">E</a>
+            </td>
+        </tr>
+
+    </table>
+
+</section>
+
+</body>
+</html>

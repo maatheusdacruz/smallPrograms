@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template}">
+<body>
+
+<!--<section layout:fragment="barra">-->
+<!--    Blá Blá-->
+<!--</section>-->
+
+<section layout:fragment="corpo">
+    <h2> <span sec:authorize="isAuthenticated()" >
+<!--        <span sec:authentication="name">fulano</span>-->
+        <span th:text="${nome}">fulano</span>
+    </span>
+        Bem-vindo ao sistema PetDog!</h2>
+    <p  sec:authorize="hasAuthority('CAN_FILTER')">Você está na área inicial do sistema.</p>
+</section>
+
+</body>
+</html>
