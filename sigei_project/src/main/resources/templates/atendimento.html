@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template}">
+<body>
+
+<!--<section layout:fragment="barra">-->
+<!--    Blá Blá-->
+<!--</section>-->
+
+<section layout:fragment="corpo">
+    <h1>Atendimento <span id="nm"></span></h1>
+    <button type="button" id="btn">carregar</button>
+    <br />
+    <div id="search">
+        <label for="cpId">Id do Cliente</label>
+        <input type="text" id="cpId" />
+        <button>busca</button>
+        <div>
+
+        </div>
+    </div>
+
+    <script>
+
+        const busca = async ()=>{
+            let id = document.querySelector("#cpId").value
+            let serv = await fetch(`http://localhost:9000/api/user/cliente/${id}`,
+            {"method": "GET"})
+            if (serv.status == 404){
+                document.querySelector("#search > div").innerHTML = `Cliente ${id} não encontrado`
+            }else{
+                let dados = await serv.json()
+                document.querySelector("#search > div").innerHTML = `
+                Nome: ${dados.nome}
+                email: ${dados.email}
+                `
+            }
+        }
+        let btn1 = document.querySelector("#search > button")
+        btn1.addEventListener("click", busca)
+
+        const carrega = async ()=>{
+            let serv = await fetch("http://localhost:9000/api/user/dog",
+            {"method": "GET"})
+            console.log(serv)
+            console.log( serv.status )
+            let dados = await serv.json()
+
+            console.log(dados)
+            document.querySelector("#nm").innerHTML = dados.nome
+        }
+        let btn = document.querySelector("#btn")
+        btn.addEventListener("click", carrega)
+
+    </script>
+
+</section>
+
+</body>
+</html>

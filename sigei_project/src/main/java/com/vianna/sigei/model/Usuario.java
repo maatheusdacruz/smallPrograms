@@ -2,11 +2,16 @@ package com.vianna.sigei.model;
 
 import jakarta.persistence.*;
 
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
-public class Usuario {
+public abstract class Usuario {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nome;
     private String email;

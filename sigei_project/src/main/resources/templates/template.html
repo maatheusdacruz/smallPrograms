@@ -2,65 +2,63 @@
 <html
         xmlns:th="http://www.thymeleaf.org"
         xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
-        xmlns:layout="http: //www.ultraq.net.nz/thymeleaf/layout" >
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetDog Dashboard</title>
-
-    <link rel="stylesheet" href="/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetDog Dashboard</title>
+ 
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-<div class="sidebar">
+  <div class="sidebar">
     <div class="logo">
-        <!-- <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="logo"> -->
-        <img src="/img/logo.png" alt="logo">
-        <div class="logo-text">PetDog</div>
+      <!-- <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="logo"> -->
+      <img src="/img/logo.png" alt="logo">
+      <div class="logo-text">PetDog</div>
     </div>
     <div class="nav-item"><a href="/">Dashboard</a></div>
-<!--    <div sec:authorize="isAnonymous()" class="nav-item"><a href="/login">Login</a></div>-->
-<!--    <div  sec:authorize="hasRole('FUNCIONARIO')" class="nav-item">Atendimento</div>-->
-<!--    <div  sec:authorize="hasRole('FUNCIONARIO')" class="nav-item">Animais</div>-->
-<!--    <div  sec:authorize="hasRole('FUNCIONARIO')" class="nav-item"><a href="/cliente">Clientes</a> </div>-->
-<!--    <div  sec:authorize="hasRole('CLIENTE')" class="nav-item"><a href="/my">Meus Pets</a> </div>-->
-<!--    <div sec:authorize="isAuthenticated()" class="nav-item">-->
-        <form  method="POST" th:action="@{/logout}">
-            <button>Logout</button>
-        </form>
-        <!--      <a href="/logout">Logout</a> -->
+    <div sec:authorize="isAnonymous()" class="nav-item"><a href="/login">Login</a></div>
+    <div  sec:authorize="hasRole('FUNCIONARIO')" class="nav-item"><a href="/atendimento">Atendimento</a></div>
+    <div  sec:authorize="hasRole('FUNCIONARIO')" class="nav-item">Animais</div>
+    <div  sec:authorize="hasRole('FUNCIONARIO')" class="nav-item"><a href="/cliente">Clientes</a> </div>
+    <div  sec:authorize="hasRole('CLIENTE')" class="nav-item"><a href="/my">Meus Pets</a> </div>
+    <div sec:authorize="isAuthenticated()" class="nav-item">
+      <form  method="POST" th:action="@{/logout}">
+        <button>Logout</button>
+      </form>
+<!--      <a href="/logout">Logout</a> -->
 
     </div>
-</div>
+  </div>
 
-<div class="main" >
+  <div class="main" >
     <div class="overview"  layout:fragment="barra">
-<!--        <div class="card">-->
-<!--            <div>-->
-<!--                <h3>20 Orders</h3>-->
-<!--            </div>-->
-<!--            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="orders">-->
-<!--        </div>-->
-<!--        <div class="card">-->
-<!--            <div>-->
-<!--                <h3>R$ 1.200 Revenue</h3>-->
-<!--            </div>-->
-<!--            <img src="https://cdn-icons-png.flaticon.com/512/2331/2331943.png" alt="revenue">-->
-<!--        </div>-->
-<!--        <div class="card">-->
-<!--            <div>-->
-<!--                <h3>5 Customers</h3>-->
-<!--            </div>-->
-<!--            <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="customers">-->
-
-            <h1>barra</h1>
+      <div class="card">
+        <div>
+          <h3>20 Orders</h3>
         </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="orders">
+      </div>
+      <div class="card">
+        <div>
+          <h3>R$ 1.200 Revenue</h3>
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/2331/2331943.png" alt="revenue">
+      </div>
+      <div class="card">
+        <div>
+          <h3>5 Customers</h3>
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="customers">
+      </div>
     </div>
 
     <div layout:fragment="corpo">
 
-        <h3>Ccorpo</h3>
+      <h3>CORPO 123</h3>
     </div>
-</div>
+  </div>
 
 
 </body>

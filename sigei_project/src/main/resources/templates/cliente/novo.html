@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{./template}">
+<body>
+
+<section layout:fragment="barra">
+    <h1 th:if="${cliente.id == 0}" >Cadastro do Cliente</h1>
+    <h1 th:if="${cliente.id > 0}" >Alterar Cliente</h1>
+</section>
+
+<section layout:fragment="corpo">
+    <form th:object="${cliente}" method="POST" th:action="@{/cliente}">
+        <input type="hidden" th:field="*{id}" />
+        <label>Nome</label> <input type="text" required th:field="*{nome}" /><br/>
+        <label>email</label> <input type="email" required  th:field="*{email}" /><br/>
+        <label>login</label> <input type="text" required  th:field="*{login}"  /><br/>
+        <label>senha</label> <input type="password" required th:field="*{senha}" /><br/>
+        <label>telefone</label> <input type="text" required th:field="*{telefone}" /><br/>
+        <br />
+        <button>Salvar</button>
+    </form>
+</section>
+
+</body>
+</html>
